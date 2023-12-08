@@ -5,3 +5,5 @@ module.exports ={
     sessionSecret
 
 }
+
+//npm run start

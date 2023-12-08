@@ -13,7 +13,7 @@ user_route.set('views','./views/users');
 
 const bodyParser = require('body-parser');
 user_route.use(bodyParser.json());
-user_route.use(bodyParser.urlencoded({extended:true}))
+user_route.use(bodyParser.urlencoded({extended:true}));
 
 const multer = require('multer');
 const path = require('path');
@@ -39,7 +39,6 @@ user_route.get('/verify',userController.verifyMail);
 
 user_route.get('/',auth.isLogout,userController.loginLoad);
 user_route.get('/login',auth.isLogout,userController.loginLoad);
-
 user_route.post('/login',userController.verifyLogin);
 
 user_route.get('/home',auth.isLogin,userController.loadHome);
