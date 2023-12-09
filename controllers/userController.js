@@ -35,7 +35,7 @@ const sendVerifyMail = async(name, email,user_id) => {
         const mailOptions = {
             form:'21amtics464@gmail.com',
             to:email,
-            subject:'FOr Verification mail',
+            subject:'For Verification mail',
             html:'<p>Hi'+name+', please click here to <a href="http://localhost:3000/verify?id='+user_id+'"> Verify </a> your mail.</p>'
         }
         transpoter.sendMail(mailOptions, function(error,info){
@@ -127,7 +127,7 @@ const verifyLogin = async()=>{
         const userData = await User.findOne({email:email});
 
         if(userData){
-            const passwordMatch = await bcrypt.compare(password,userData.password);
+            const passwordMatch = await bcrypt.compare(password,userData.password)
             if(passwordMatch){
                 if(userData.is_verified === 0){
                     res.render('login',{message:"Please verify your email"});
